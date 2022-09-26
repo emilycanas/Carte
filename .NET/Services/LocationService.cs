@@ -1,8 +1,8 @@
-﻿using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests;
+﻿using Carte.Data;
+using Carte.Data.Providers;
+using Carte.Models;
+using Carte.Models.Domain;
+using Carte.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace Carte.Services
 {
     public class LocationService : ILocationService
     {
@@ -20,7 +20,6 @@ namespace Sabio.Services
         {
             _data = data;
         }
-
 
         public List<Location> Get(int userId)
         {
@@ -99,7 +98,6 @@ namespace Sabio.Services
                 paramCollection.AddWithValue("@Id", id);
             }, returnParameters: null
             );
-
         }
 
         private static void AddCommonParams(LocationAddRequest model, SqlParameterCollection col)
@@ -114,13 +112,11 @@ namespace Sabio.Services
             col.AddWithValue("@Longitude", model.Longitude);
         }
 
-
         private static Location MapLocation(IDataReader reader, ref int startingIndex)
         {
             Location location = new Location();
             location.LocationType = new LookUp();
             location.State = new State();
-
 
             location.Id = reader.GetSafeInt32(startingIndex++);
             location.LocationType.Id = reader.GetSafeInt32(startingIndex++);
@@ -138,9 +134,5 @@ namespace Sabio.Services
             return location;
 
         }
-
-
-
-
     }
 }
