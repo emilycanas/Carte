@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sabio.Models.Domain;
-using Sabio.Services;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
+using Carte.Models.Domain;
+using Carte.Services;
+using Carte.Web.Controllers;
+using Carte.Web.Models.Responses;
 using System;
 using System.Collections.Generic;
 
-namespace Sabio.Web.Api.Controllers
+namespace Carte.Web.Api.Controllers
 {
     [Route("api/states")]
     [ApiController]
@@ -85,13 +85,6 @@ namespace Sabio.Web.Api.Controllers
             }
             return StatusCode(code, response);
         }
-
-
-
-
-
-
-
 
     }
 }
