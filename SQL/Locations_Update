@@ -1,0 +1,84 @@
+USE [Carte]
+GO
+/****** Object:  StoredProcedure [dbo].[Locations_Update]    Script Date: 9/25/2022 7:49:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		<Emily Canas>
+-- Create date: <08/25/2022>
+-- Description:	<Update Proc for the Location Table>
+-- Code Reviewer: Jeremiah Omolo
+
+
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+ALTER proc [dbo].[Locations_Update]
+			@LocationTypeId int 
+			,@LineOne nvarchar(255)
+			,@LineTwo nvarchar(255)
+			,@City nvarchar(255)
+			,@Zip nvarchar(50)
+			,@StateId int
+			,@Latitude float
+			,@Longitude float
+			,@ModifiedBy int
+			,@Id int
+      
+/* ----- TEST CODE ------
+	DECLARE @Id int = 1
+
+	DECLARE @LocationTypeId int = '1'
+			,@LineOne nvarchar(255) = '789 Somewhere Update2'
+			,@LineTwo nvarchar(255) = NULL
+			,@City nvarchar(255) = 'MidCity'
+			,@Zip nvarchar(50) = '90210'
+			,@StateId int = 12
+			,@Latitude float = 5.7
+			,@Longitude float = 698.2
+			,@ModifiedBy int = 1
+	
+	EXECUTE [dbo].[Locations_Update]
+			@LocationTypeId
+			,@LineOne
+			,@LineTwo 
+			,@City
+			,@Zip
+			,@StateId 
+			,@Latitude 
+			,@Longitude 
+			,@ModifiedBy
+			,@Id
+
+	SELECT  @Id
+
+	SELECT * FROM
+	dbo.Locations
+	WHERE Id = @Id
+*/
+
+AS 
+
+BEGIN
+	DECLARE @DateModified datetime2 = getutcdate()
+
+	UPDATE [dbo].[Locations]
+			SET [LocationTypeId] = @LocationTypeId
+			   ,[LineOne] = @LineOne
+			   ,[LineTwo] = @LineTwo
+			   ,[City] = @City
+			   ,[Zip] = @Zip
+			   ,[StateId] = @StateId
+			   ,[Latitude] = @Latitude
+			   ,[Longitude] = @Longitude
+			   ,[DateModified] = @DateModified
+			   ,[ModifiedBy] = @ModifiedBy			   
+	WHERE Id = @Id
+END
