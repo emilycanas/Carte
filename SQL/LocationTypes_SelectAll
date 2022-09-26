@@ -1,0 +1,38 @@
+USE [Carte]
+GO
+/****** Object:  StoredProcedure [dbo].[LocationTypes_SelectAll]    Script Date: 9/25/2022 7:51:29 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Emily Canas>
+-- Create date: <08/25/2022>
+-- Description:	<Select All Proc for the LocationTypes Table>
+-- Code Reviewer: Jeremiah Omolo
+
+
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+
+ALTER proc [dbo].[LocationTypes_SelectAll]
+
+/* -----TEST CODE-----
+	Execute dbo.LocationTypes_SelectAll
+*/
+
+AS
+
+BEGIN
+
+		SELECT [Id]
+			,[Name]
+		FROM [dbo].[LocationTypes]
+
+END
+
