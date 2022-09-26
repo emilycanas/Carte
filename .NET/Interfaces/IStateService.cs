@@ -1,7 +1,7 @@
-﻿using Sabio.Models.Domain;
+﻿using Carte.Models.Domain;
 using System.Collections.Generic;
 
-namespace Sabio.Services
+namespace Carte.Services
 {
     public interface IStateService
     {
