@@ -1,9 +1,9 @@
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests;
+using Carte.Models;
+using Carte.Models.Domain;
+using Carte.Models.Requests;
 using System.Collections.Generic;
 
-namespace Sabio.Services
+namespace Carte.Services
 {
     public interface ILocationService
     {
