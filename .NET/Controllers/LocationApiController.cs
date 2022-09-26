@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests;
-using Sabio.Services;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
+using Carte.Models;
+using Carte.Models.Domain;
+using Carte.Models.Requests;
+using Carte.Services;
+using Carte.Web.Controllers;
+using Carte.Web.Models.Responses;
 using System;
 using System.Collections.Generic;
 
-namespace Sabio.Web.Api.Controllers
+namespace Carte.Web.Api.Controllers
 {
     [Route("api/location")]
     [ApiController]
@@ -53,8 +53,6 @@ namespace Sabio.Web.Api.Controllers
 
             return result;
         }
-
-
 
         [HttpPut("{id:int}")]
         public ActionResult<SuccessResponse> Update(LocationUpdateRequest model)
