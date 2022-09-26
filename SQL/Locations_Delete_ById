@@ -1,0 +1,44 @@
+USE [Carte]
+GO
+/****** Object:  StoredProcedure [dbo].[Locations_Delete_ById]    Script Date: 9/25/2022 7:47:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Emily Canas>
+-- Create date: <08/25/2022>
+-- Description:	<Delete By Id Proc for the Locations Table>
+-- Code Reviewer: Jeremiah Omolo
+
+
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+ALTER proc [dbo].[Locations_Delete_ById]
+							@Id int
+
+/*
+	DECLARE @Id int = 43
+
+			SELECT *
+			FROM [dbo].[Locations]
+			WHERE Id = @Id
+
+			EXECUTE [dbo].[Locations_Delete_ById] @Id
+
+			SELECT *
+			FROM [dbo].[Locations]
+			WHERE Id = @Id
+*/
+
+AS
+
+BEGIN
+	DELETE FROM [dbo].[Locations]
+			  WHERE Id = @Id;
+END
