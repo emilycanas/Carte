@@ -1,0 +1,37 @@
+USE [Carte]
+GO
+/****** Object:  StoredProcedure [dbo].[StateCodes_SelectAll]    Script Date: 9/25/2022 7:54:56 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		<Emily Canas>
+-- Create date: <08/25/2022>
+-- Description:	<Select All Proc for the States Table Id and Code Column>
+-- Code Reviewer: Jeremiah Omolo
+
+
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+ALTER proc [dbo].[StateCodes_SelectAll]
+
+/* -----TEST CODE-----
+	EXECUTE [dbo].[StateCodes_SelectAll]
+*/
+
+AS 
+
+BEGIN
+
+	SELECT [Id]
+		  ,[Code]
+	  FROM [dbo].[States]
+
+END 
