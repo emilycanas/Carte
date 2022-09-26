@@ -1,0 +1,76 @@
+USE [Carte]
+GO
+/****** Object:  StoredProcedure [dbo].[Locations_Select_ByCreatedBy]    Script Date: 9/25/2022 7:44:31 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		<Emily Canas>
+-- Create date: <08/25/2022>
+-- Description:	< Select By CreatedBy Pagination Proc for dbo.Locations Table >
+-- Code Reviewer: Jeremiah Omolo
+
+
+-- MODIFIED BY: Emily Canas
+-- MODIFIED DATE: 8/26/2022
+-- Code Reviewer: Oscar Romero
+-- Note: I added an inner join between Location table and User table. I did not include user password in select statement.
+-- =============================================
+
+
+ALTER proc [dbo].[Locations_Select_ByCreatedBy]
+						@CreatedBy int
+						,@PageIndex int
+						,@PageSize int
+						
+/*
+	Declare @CreatedBy int = 1
+	Declare @PageIndex int = 0
+	Declare @PageSize int = 3
+
+	Execute [dbo].[Locations_Select_ByCreatedBy] @CreatedBy, @PageIndex, @PageSize
+
+
+*/
+
+AS
+
+Declare @offset int = @PageIndex * @PageSize
+
+	BEGIN
+			SELECT 
+			u.Id as UserId
+			,u.Email
+			,u.IsConfirmed
+			,u.UserStatusId
+			,u.DateCreated as DateCreatedUser
+			,u.DateModified as DateModifedUser
+
+			,l.Id as LocationId
+			,l.LocationTypeId
+			,l.LineOne
+			,l.LineTwo
+			,l.City
+			,l.Zip
+			,l.stateId
+			,l.Latitude
+			,l.Longitude
+			,l.DateCreated as DateCreatedLocation
+			,l.DateModified as DateModifiedLocation
+			,l.CreatedBy
+			,l.ModifiedBy
+			,TotalCount = Count(1) Over()
+		  FROM [dbo].[Locations] as l inner join dbo.Users as u 
+						on l.CreatedBy = u.Id
+			WHERE [CreatedBy] = @CreatedBy
+
+			
+			ORDER BY u.Id 
+			OFFSET @offSet ROWS 
+			FETCH NEXT @PageSize ROWS ONLY
+
+
+END
