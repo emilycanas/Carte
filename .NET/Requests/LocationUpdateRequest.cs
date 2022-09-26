@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Models.Requests
+namespace Carte.Models.Requests
 {
     public class LocationUpdateRequest : LocationAddRequest, IModelIdentifier
     {
