@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Models.Requests
+namespace Carte.Models.Requests
 {
     public class LocationAddRequest
     {
@@ -40,8 +40,5 @@ namespace Sabio.Models.Requests
         [Required]
         [Range(-180.0000, 180.0000)]
         public float Longitude { get; set; }
-
-      
-
     }
 }
