@@ -1,6 +1,6 @@
-﻿using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models.Domain;
+﻿using Carte.Data;
+using Carte.Data.Providers;
+using Carte.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace Carte.Services
 {
     public class StateService : IStateService
     {
@@ -66,15 +66,7 @@ namespace Sabio.Services
             state.Id = reader.GetSafeInt32(startingIndex++);
             state.Code = reader.GetSafeString(startingIndex++);
            
-
-
             return state;
         }
-
-
-
-
-
-
     }
 }
